@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #030303;
+  --fg: #fafafa;
+  --muted: rgba(250, 250, 250, 0.72);
+  --muted2: rgba(250, 250, 250, 0.56);
+  --card: rgba(255, 255, 255, 0.06);
+  --card2: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #00e676;
+  --ring: rgba(0, 230, 118, 0.35);
+  --font-sans: "Aptos", "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(90% 70% at 50% 0%, rgba(0, 230, 118, 0.06), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent 28%);
+  color: var(--fg);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+  text-rendering: geometricPrecision;
+}
+
+::selection {
+  background: rgba(0, 230, 118, 0.28);
+  color: var(--fg);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(0, 230, 118, 0.08), transparent 55%),
+    radial-gradient(90% 70% at 15% 10%, rgba(255, 255, 255, 0.04), transparent 52%),
+    var(--bg);
+}
+
+/* cinematic baseline */
+.agri-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
