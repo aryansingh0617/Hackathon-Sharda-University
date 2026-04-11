@@ -44,9 +44,13 @@ AgriSentinel addresses these challenges through an integrated system that:
 
 Machine learning models process multiple inputs such as soil conditions, weather patterns, and crop type to predict yield and identify risks.
 
-### Farm Intelligence API
+### Farm Intel API
 
-Integrates real-time environmental, soil, and weather data to enhance prediction accuracy and provide live agricultural insights.
+**Problem & Business Model:**
+Government bodies, FMCG companies, and insurers rely on outdated agricultural data, leading to inefficient decisions and inaccurate risk assessment. AgriSentinel provides **real-time farm intelligence through its Farm Intelligence API**, delivering live insights on crop health, yield, and environmental conditions.
+
+The business operates on a **Data-as-a-Service model**, where enterprises pay for API access and AgriScore analytics. With scalable B2B subscriptions and institutional licensing, AgriSentinel has a strong revenue potential with an **estimated ARR of ₹5–10 Crore in early stages**, scaling significantly as adoption grows across agritech, finance, and supply chain sectors.
+
 
 ### AgriScore System
 
