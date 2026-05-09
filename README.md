@@ -2,9 +2,9 @@
 
 <h1>🌾 AgriSentinel</h1>
 
-<p><strong>The Intelligence Layer of Agriculture</strong></p>
+<p><strong>AI-Powered Agriculture Intelligence Platform</strong></p>
 
-<p>AI-powered crop intelligence · Blockchain-verified farm data · Real-time AgriScore</p>
+<p>Real-time crop health prediction · Yield forecasting · Blockchain-verified farm scoring</p>
 
 <p>
   <a href="https://agrisentinel-nu.vercel.app/">
@@ -12,69 +12,74 @@
   </a>
   <img src="https://img.shields.io/badge/Next.js-16.2.2-black?style=flat-square&logo=nextdotjs" alt="Next.js" />
   <img src="https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat-square&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Python-ML%20Models-3776AB?style=flat-square&logo=python" alt="Python" />
   <img src="https://img.shields.io/badge/Supabase-Backend-3ECF8E?style=flat-square&logo=supabase" alt="Supabase" />
   <img src="https://img.shields.io/badge/Blockchain-Smart%20Contracts-F7931A?style=flat-square" alt="Blockchain" />
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status" />
 </p>
-
 
 </div>
 
 ---
 
-## What is AgriSentinel?
+## Overview
 
-AgriSentinel is an AI and blockchain-powered agriculture intelligence platform. It ingests real-time soil, weather, and crop data through a **Farm Intelligence API**, runs machine learning models to predict yield and detect disease risk, and produces a standardized **AgriScore** — a single, verifiable trust metric for any farm.
+AgriSentinel is an end-to-end AI/ML platform that brings data-driven intelligence to agriculture. It processes real-time soil conditions, weather patterns, and crop data through machine learning models to predict yield, detect disease risk early, and generate a standardized **AgriScore** — a single, interpretable trust metric for any farm.
 
-Every AgriScore is written to a smart contract, making farm insights tamper-proof and auditable by anyone in the supply chain — from banks and insurers to FMCG buyers and government bodies.
+AgriScore outputs are stored on-chain via smart contracts, making farm intelligence tamper-proof and auditable across the supply chain — from farmers and buyers to financial institutions and insurers.
+
+> **This project is actively being developed and improved.**
 
 ---
 
 ## The Problem
 
-Agriculture runs on gut feeling and fragmented data.
+Modern agriculture suffers from a fundamental data gap:
 
-- Farmers make critical decisions without real-time, accurate soil or weather intelligence
-- Crop diseases are caught too late — after losses have already happened
-- There is no standardized, trustworthy way to evaluate farm productivity
-- Buyers, insurers, and financial institutions can't verify farm data — so they price in the risk
-- Existing agritech tools are siloed and don't talk to each other
-
----
-
-## The Solution
-
-AgriSentinel brings together four layers in one platform:
-
-| Layer | What it does |
-|---|---|
-| **Farm Intelligence API** | Pulls real-time weather, soil, and field data |
-| **AI/ML Engine** | Predicts yield, flags disease risk, scores crop health |
-| **AgriScore** | Single composite metric — 0 to 100 — for any farm |
-| **Blockchain Layer** | Stores AgriScore on-chain for immutable verification |
+- Farmers make high-stakes decisions without real-time, accurate soil or weather intelligence
+- Crop diseases are identified too late — after losses have already compounded
+- There is no standardized, verifiable way to evaluate farm productivity or reliability
+- Banks, insurers, and FMCG buyers cannot trust unverified farm data, so they price in the uncertainty
+- Existing agritech tools are siloed, fragmented, and not built for the actual farmer
 
 ---
 
-## Key Features
+## AI/ML Core
 
-### AgriScore System
-A composite 0–100 score reflecting crop health, yield potential, and environmental risk. Farmers use it to improve; lenders and buyers use it to trust.
+This is the technical heart of AgriSentinel. The intelligence pipeline runs in three stages:
 
-### Crop Health & Yield Prediction
-ML models process soil type, moisture levels, weather patterns, and crop variety to predict yield and surface risks before they become losses.
+### 1. Data Ingestion
+The Farm Intelligence API aggregates real-time inputs:
+- Soil parameters — pH, moisture, nitrogen/phosphorus/potassium levels
+- Weather data — temperature, rainfall, humidity, wind
+- Crop metadata — variety, growth stage, historical yield records
+- Satellite and field sensor readings *(in progress)*
 
-### Disease Detection
-Early-stage disease identification from input data allows timely intervention — before a bad patch becomes a failed harvest.
+### 2. Prediction Models
 
-### Farm Intelligence API
-A B2B data API delivering live farm insights to enterprises. Government bodies, FMCG companies, and insurers subscribe for real-time AgriScore analytics on the farms they care about.
+| Model | Task | Approach |
+|---|---|---|
+| Yield Predictor | Estimate harvest output per acre | Regression on soil + weather features |
+| Disease Risk Classifier | Early-stage disease flag | Classification on crop + environmental signals |
+| AgriScore Engine | Composite 0–100 farm score | Weighted multi-factor scoring model |
 
-> **Business model:** Data-as-a-Service with B2B subscriptions and institutional licensing. Estimated early-stage ARR of ₹5–10 Crore, scaling across agritech, finance, and supply chain sectors.
+All models are built in Python and served via API routes integrated into the Next.js backend.
 
-### Blockchain-Verified Records
-AgriScore and critical farm outputs are stored on-chain via smart contracts — immutable, transparent, and independently verifiable.
+### 3. Blockchain Verification
+AgriScore outputs are written to Solidity smart contracts — creating an immutable, on-chain record of each farm's intelligence snapshot. This makes the AI output trustworthy, not just accurate.
 
-### Real-Time Dashboard
-A clean, data-dense interface with actionable insights for farmers and stakeholders. No noise, just decisions.
+---
+
+## AgriScore
+
+AgriScore is the platform's core output — a single number between 0 and 100 that reflects:
+
+- **Crop health** — current disease risk and plant condition
+- **Yield potential** — predicted harvest performance vs. historical average
+- **Sustainability** — soil health trends and environmental impact signals
+- **Reliability** — data completeness and consistency of farm records
+
+Farmers use it to identify where to improve. Lenders and buyers use it to make trusted decisions without on-site visits.
 
 ---
 
@@ -84,18 +89,18 @@ A clean, data-dense interface with actionable insights for farmers and stakehold
 User / Farmer
       │
       ▼
- Next.js Frontend  ◄──── Framer Motion UI, Tailwind CSS v4
+ Next.js 16 Frontend  ◄──── React 19, Tailwind CSS v4, Framer Motion
       │
       ▼
- Supabase Backend  ◄──── Auth, Database, Real-time subscriptions
+ Supabase Backend  ◄──────── Auth, Postgres DB, real-time subscriptions
       │
-      ├──► Farm Intelligence API  ◄── Weather, soil, field data (real-time)
+      ├──► Farm Intelligence API  ◄── Real-time weather, soil & field data
       │
-      ├──► Python ML Models  ◄──────── Yield prediction, disease detection
+      ├──► Python ML Pipeline  ◄───── Yield prediction + disease detection
+      │         │
+      │         └──► AgriScore Engine  ◄── Composite scoring logic
       │
-      ├──► AgriScore Engine  ◄──────── Composite scoring logic
-      │
-      └──► Smart Contracts  ◄──────── On-chain AgriScore storage (blockchain)
+      └──► Smart Contracts  ◄──────── On-chain AgriScore storage (Solidity)
 ```
 
 ---
@@ -103,24 +108,25 @@ User / Farmer
 ## Tech Stack
 
 **Frontend**
-- [Next.js 16](https://nextjs.org/) — App Router, server components
-- [React 19](https://react.dev/) — Latest concurrent features
-- [Tailwind CSS v4](https://tailwindcss.com/) — Utility-first styling
-- [Framer Motion](https://www.framer.com/motion/) — Animations
-- [Lenis](https://lenis.darkroom.engineering/) — Smooth scrolling
+- [Next.js 16](https://nextjs.org/) with App Router and server components
+- [React 19](https://react.dev/) with concurrent rendering
+- [Tailwind CSS v4](https://tailwindcss.com/) for utility-first styling
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [Lenis](https://lenis.darkroom.engineering/) for smooth scroll
 
 **Backend & Database**
-- [Supabase](https://supabase.com/) — Postgres database, auth, real-time
-- Node.js — API routes via Next.js
+- [Supabase](https://supabase.com/) — Postgres, auth, real-time
+- Next.js API routes for server-side logic
 
 **AI / ML**
-- Python — Crop yield prediction and disease detection models
+- Python — core ML models for yield prediction and disease classification
+- Scikit-learn / custom scoring logic for AgriScore computation
 
 **Blockchain**
-- Solidity smart contracts — On-chain AgriScore storage and verification
+- Solidity smart contracts — on-chain AgriScore storage and tamper-proof verification
 
 **Infrastructure**
-- [Vercel](https://vercel.com/) — Deployment and hosting
+- [Vercel](https://vercel.com/) — deployment and hosting
 
 ---
 
@@ -128,8 +134,8 @@ User / Farmer
 
 ### Prerequisites
 - Node.js 18+
+- Python 3.9+
 - A [Supabase](https://supabase.com/) project
-- Supabase CLI (for running migrations)
 
 ### Installation
 
@@ -141,7 +147,7 @@ npm install
 
 ### Environment Setup
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the root:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
@@ -154,50 +160,62 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 supabase db push
 ```
 
-### Start the Dev Server
+### Start Development Server
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
 ---
 
-## How It Works
+## Project Structure
 
-1. The farmer or operator submits farm data via the dashboard
-2. The Farm Intelligence API fetches real-time weather and soil context
-3. Python ML models analyze the combined data and generate predictions
-4. The AgriScore engine computes a composite 0–100 score
-5. The score and key outputs are written to a smart contract on-chain
-6. The dashboard surfaces insights and recommendations in real time
-
----
-
-## Impact
-
-- **Farmers** — make data-driven decisions instead of guessing
-- **Crop loss reduction** — early disease detection before damage spreads
-- **Supply chain trust** — buyers get verifiable, tamper-proof farm data
-- **Financial inclusion** — banks and insurers can assess farm risk accurately
-- **Sustainability** — data-backed guidance promotes responsible farming practices
+```
+AgriSentinel/
+├── src/                    # Next.js app source
+│   ├── app/                # App Router pages and layouts
+│   ├── components/         # Reusable UI components
+│   └── lib/                # Supabase client, utilities
+├── contracts/              # Solidity smart contracts
+├── supabase/
+│   └── migrations/         # Database schema migrations
+└── public/                 # Static assets
+```
 
 ---
 
 ## Roadmap
 
+- [x] Farm Intelligence API integration
+- [x] Yield prediction ML model
+- [x] Disease risk classification
+- [x] AgriScore engine
+- [x] Blockchain-verified score storage
+- [x] Real-time dashboard
 - [ ] Satellite imagery integration for large-scale field monitoring
 - [ ] IoT sensor pipeline for automated real-time data ingestion
+- [ ] Model accuracy benchmarking and evaluation report
 - [ ] Mobile app (React Native) for on-field farmer access
 - [ ] Multi-language support for rural accessibility
-- [ ] Government and agricultural institution partnerships
 
 ---
 
-## Team
+## Why This Matters
 
-Built by **Aryan Singh** at a Hackathon.
+India has 140 million farming households. Most of them make decisions based on experience and guesswork — not data. AgriSentinel is an attempt to change that with tools that are genuinely useful on the ground, not just impressive in a pitch deck.
+
+The blockchain layer exists not for novelty but for a real reason: farm data needs to be trusted by parties who weren't there. An AI prediction means nothing to a bank or insurer if the underlying data can be manipulated. On-chain AgriScore solves that.
+
+---
+
+## About
+
+Built and maintained by **Aryan Singh** — CS student with a focus on applied AI/ML and full-stack development.
+
+- GitHub: [@aryansingh0617](https://github.com/aryansingh0617)
+- Live: [agrisentinel-nu.vercel.app](https://agrisentinel-nu.vercel.app)
 
 ---
 
