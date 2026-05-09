@@ -16,7 +16,6 @@
   <img src="https://img.shields.io/badge/Blockchain-Smart%20Contracts-F7931A?style=flat-square" alt="Blockchain" />
 </p>
 
-<p><em>Built at Sharda University Hackathon</em></p>
 
 </div>
 
